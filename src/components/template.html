@@ -27,17 +27,19 @@
         class="vue-lb-figure"
         @click.stop
       >
-        <transition 
-          mode="out-in" 
-          name="fade"
-        >
-          <img 
-            :key="images[select].src"
-            :src="images[select].src"
-            :srcset="images[select].srcset || ''"
-            class="vue-lb-modal-image"
+        <slot name="image">
+          <transition 
+            mode="out-in" 
+            name="fade"
           >
-        </transition>
+            <img 
+              :key="images[select].src"
+              :src="images[select].src"
+              :srcset="images[select].srcset || ''"
+              class="vue-lb-modal-image"
+            >
+          </transition>
+        </slot>
 
         <div 
           class="vue-lb-info" 
